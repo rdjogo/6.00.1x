@@ -10,11 +10,15 @@ balance = 484
 annualInterestRate = 0.2
 monthlyPaymentRate = 0.04
 
-def remainBalance(month):
-    if month == 0:
+def remainBalance(n):
+    '''
+    n - number of months positive integer
+    Returns balance after n months - a decimal
+    '''    
+    if n == 0:
         return balance
     else:
-        return round(remainBalance(month-1)*(1 - monthlyPaymentRate)*(1 + annualInterestRate/12.0), 2)
+        return round(remainBalance(n-1)*(1 - monthlyPaymentRate)*(1 + annualInterestRate/12.0), 2)
         
 
 print("Remaining balance:", remainBalance(12))
